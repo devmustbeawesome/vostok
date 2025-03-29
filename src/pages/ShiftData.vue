@@ -7,8 +7,8 @@ import { DepartmentList } from '@/entities/department'
 import { WorkerList } from '@/entities/worker'
 import { ShiftList } from '@/entities/shift'
 import { TeamList } from '@/entities/team'
-
-const workAssignment = useWorkAssignmentStore.state
+const workAssignmentStore = useWorkAssignmentStore()
+const workAssignment = workAssignmentStore.state
 const city = computed(() => CityList.find((city) => city.id == workAssignment.city_id)?.name)
 const department = computed(
   () => DepartmentList.find((department) => department.id == workAssignment.department_id)?.name,

@@ -8,10 +8,11 @@ import { TeamList } from '@/entities/team'
 import { computed, watch } from 'vue'
 import { useWorkAssignmentStore } from '@entities/workAssignment'
 import { useRouter } from 'vue-router'
-const shiftFormData = useWorkAssignmentStore.state
+const workAssignmentStore = useWorkAssignmentStore()
+const shiftFormData = workAssignmentStore.state
 const router = useRouter()
 const saveShift = () => {
-  useWorkAssignmentStore.set(shiftFormData)
+  workAssignmentStore.set(shiftFormData)
   router.push({ name: 'shift' })
 }
 const filteredDepartmentList = computed(() =>
