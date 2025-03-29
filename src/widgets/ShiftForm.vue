@@ -7,9 +7,12 @@ import { ShiftList } from '@/entities/shift'
 import { TeamList } from '@/entities/team'
 import { computed, watch } from 'vue'
 import { useWorkAssignmentStore } from '@entities/workAssignment'
+import { useRouter } from 'vue-router'
 const shiftFormData = useWorkAssignmentStore.state
+const router = useRouter()
 const saveShift = () => {
   useWorkAssignmentStore.set(shiftFormData)
+  router.push({ name: 'shift' })
 }
 const filteredDepartmentList = computed(() =>
   DepartmentList.filter((department) => department.city_id === shiftFormData.city_id),
